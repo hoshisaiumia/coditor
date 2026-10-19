@@ -25,7 +25,7 @@ function createWindow() {
       contextIsolation: true
     }
   })
-  
+
   const wc = win.webContents
 
   wc.on('render-process-gone', (_e, details) => console.error('Renderer morreu:', details))
@@ -46,6 +46,10 @@ ipcMain.on('titlebar:set-colors', (e, colors: { color: string; symbolColor: stri
   if (isMac) return
 
   BrowserWindow.fromWebContents(e.sender)?.setTitleBarOverlay(colors)
+})
+
+ipcMain.on('app:quit', () => {
+  app.quit()
 })
 
 app.whenReady().then(() => {

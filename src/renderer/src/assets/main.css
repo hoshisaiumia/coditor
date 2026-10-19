@@ -6,27 +6,31 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #e5e5e5;
-  --background-hover: #d3d3d3;
-  --border-line: #e5e5e5f3;
-  --header-text: #444444;
-  --header-button-hover: #a0a0a0;
-  --main-text: #171717;
+  --background-main: #e9e9e9;
+  --top-menu-text: #525252;
+  --shortcut-text: #b4b4b4;
+  --top-menu-text-hover: #171717;
+  --top-menu-button: #e9e9e9;
+  --top-menu-button-hover: #c7c7c7;
+  --border-line: #c7c5c5;
 }
 
 .dark {
-  --background: #141414;
-  --background-hover: #242424;
-  --border-line: #2b2a2a;
-  --header-text: #6b6b6b;
-  --header-button-hover: #a0a0a0;
-  --main-text: #e5e5e5;
+  --background-main: #171717;
+  --top-menu-text: #d4d4d4;
+  --shortcut-text: #757575;
+  --top-menu-text-hover: #ffffff;
+  --top-menu-button: #171717;
+  --top-menu-button-hover: #3b3b3b;
+  --border-line: #3b3b3b;
 }
 
 @theme {
-  --color-background: var(--background);
-  --color-background-hover: var(--background-hover);
-  --color-main-text: var(--main-text);
+  --color-background-main: var(--background-main);
+  --color-top-menu-text: var(--top-menu-text);
+  --color-shortcut-text: var(--shortcut-text);
+  --color-top-menu-text-hover: var(--top-menu-text-hover);
+  --color-top-menu-button: var(--top-menu-button);
+  --color-top-menu-button-hover: var(--top-menu-button-hover);
   --color-border-line: var(--border-line);
-  --color-header-text: var(--header-text);
 }

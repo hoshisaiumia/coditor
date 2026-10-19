@@ -1,11 +1,6 @@
 import { useTheme } from '@renderer/providers/theme-provider'
 import { useEffect } from 'react'
-import { HeaderDropdownOption } from './HeaderDropdownOption'
-
-type HeaderOption = {
-  label: string
-  dropdown: HeaderDropdownOption
-}
+import FileButton from './menu-bar/File'
 
 export function TitleBar({ title = 'Coditor' }) {
   const isMac = window.api?.platform === 'darwin'
@@ -23,19 +18,21 @@ export function TitleBar({ title = 'Coditor' }) {
   return (
     <header
       className="
-    flex h-8.25 shrink-0 items-center w-full pl-2
+    flex h-8.25 shrink-0 items-center w-full
     justify-center
     gap-10
-    bg-background
-    text-header-text
+    bg-background-main
+    text-top-menu-text
     border-b
     border-border-line
     [-webkit-app-region:drag]
   "
     >
+      <div className="[-webkit-app-region:no-drag] text-top-menu-text hover:text-top-menu-text-hover bg-background-main">
+        <FileButton />
+      </div>
       <div className="w-full flex justify-center">
         <p className="">{title}</p>
-        <div></div>
       </div>
     </header>
   )
