@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/jetbrains-mono';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #e5e5e5;
+  --background-hover: #d3d3d3;
+  --border-line: #e5e5e5f3;
+  --header-text: #444444;
+  --header-button-hover: #a0a0a0;
+  --main-text: #171717;
+}
+
+.dark {
+  --background: #141414;
+  --background-hover: #242424;
+  --border-line: #2b2a2a;
+  --header-text: #6b6b6b;
+  --header-button-hover: #a0a0a0;
+  --main-text: #e5e5e5;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-background-hover: var(--background-hover);
+  --color-main-text: var(--main-text);
+  --color-border-line: var(--border-line);
+  --color-header-text: var(--header-text);
+}
