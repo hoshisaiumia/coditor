@@ -6,7 +6,7 @@ declare global {
       platform: NodeJS.Platform
       setTitleBarColors: (colors: { color: string; symbolColor: string }) => void
       quit: () => void
-    },
+    }
     electron: ElectronAPI
   }
 }
