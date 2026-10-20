@@ -2,7 +2,7 @@ import { useTheme } from '@renderer/providers/theme-provider'
 import { useEffect } from 'react'
 import FileButton from './menu-bar/File'
 
-export function TitleBar({ title = 'Coditor' }) {
+export function TitleBar({ title = 'Coditor' }: { title?: string }): React.JSX.Element {
   const isMac = window.api?.platform === 'darwin'
   const { isDark } = useTheme()
 

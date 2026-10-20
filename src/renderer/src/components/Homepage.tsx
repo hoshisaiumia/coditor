@@ -1,7 +1,8 @@
 import { useTheme } from '@renderer/providers/theme-provider'
 import { Button } from './ui/button'
+import { ReactElement } from 'react'
 
-export function Homepage() {
+export function Homepage(): ReactElement {
   const { toggleTheme, resolvedTheme } = useTheme()
   return (
     <div className="h-dvh flex flex-col gap-3 items-center justify-center">

@@ -23,7 +23,7 @@ export type IMenuDropdown = {
   sections: IMenuDropdownSection[]
 }
 
-export function MenuButtonComponent({ label, sections }: IMenuDropdown) {
+export function MenuButtonComponent({ label, sections }: IMenuDropdown): React.JSX.Element {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger

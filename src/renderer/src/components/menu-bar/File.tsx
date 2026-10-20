@@ -1,5 +1,4 @@
 import { type IMenuDropdown, MenuButtonComponent } from './MenuDropdown'
-
 const FileDropdownMenu: IMenuDropdown = {
   label: 'File',
   sections: [
@@ -23,6 +22,6 @@ const FileDropdownMenu: IMenuDropdown = {
   ]
 }
 
-export default function FileButton() {
+export default function FileButton(): React.JSX.Element {
   return <MenuButtonComponent {...FileDropdownMenu} />
 }

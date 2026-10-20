@@ -3,7 +3,7 @@ import { join } from 'path'
 
 const isMac = process.platform === 'darwin'
 
-function createWindow() {
+function createWindow(): void {
   const win = new BrowserWindow({
     width: 1100,
     height: 720,
