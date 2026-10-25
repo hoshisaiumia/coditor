@@ -1,3 +1,4 @@
+import { useFileStore } from '@renderer/store/file.store'
 import { type IMenuDropdown, MenuButtonComponent } from './MenuDropdown'
 const FileDropdownMenu: IMenuDropdown = {
   label: 'File',
@@ -11,7 +12,14 @@ const FileDropdownMenu: IMenuDropdown = {
       }
     ],
     [
-      { label: 'Open file', shortcut: 'Ctrl+O', action: () => console.log('Open a file!') },
+      {
+        label: 'Open file',
+        shortcut: 'Ctrl+O',
+        action: async () => {
+          const result = await window.api.openFile()
+          if (result) useFileStore.getState().loaded(result.filePath, result.content)
+        }
+      },
       {
         label: 'Open project',
         shortcut: 'Ctrl+Shift+O',

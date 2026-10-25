@@ -1,7 +1,10 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
+import registerAllIpc from './ipc'
 
 const isMac = process.platform === 'darwin'
+
+registerAllIpc()
 
 function createWindow(): void {
   const win = new BrowserWindow({

@@ -6,6 +6,8 @@ declare global {
       platform: NodeJS.Platform
       setTitleBarColors: (colors: { color: string; symbolColor: string }) => void
       quit: () => void
+      openFile: () => Promise<{ filePath: string; content: string } | null>
+      saveFile: (data: string, filePath?: string) => void
     }
     electron: ElectronAPI
   }
