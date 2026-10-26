@@ -3,7 +3,7 @@ import CodeEditor from './CodeEditor'
 
 export function Homepage(): ReactElement {
   return (
-    <div className="h-dvh flex flex-col gap-3 items-center justify-center">
+    <div className="h-full flex flex-col gap-3 items-center justify-center">
       <CodeEditor />
     </div>
   )

@@ -8,6 +8,7 @@ declare global {
       quit: () => void
       openFile: () => Promise<{ filePath: string; content: string } | null>
       saveFile: (data: string, filePath?: string) => void
+      onZoom: (cb: (action: 'in' | 'out' | 'reset') => void) => void
     }
     electron: ElectronAPI
   }

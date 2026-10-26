@@ -3,7 +3,6 @@ import { join } from 'path'
 import registerAllIpc from './ipc'
 
 const isMac = process.platform === 'darwin'
-
 registerAllIpc()
 
 function createWindow(): void {
@@ -28,14 +27,31 @@ function createWindow(): void {
       contextIsolation: true
     }
   })
-
   const wc = win.webContents
 
   wc.on('render-process-gone', (_e, details) => console.error('Renderer morreu:', details))
+
   wc.on('did-fail-load', (_e, code, desc, url) =>
     console.error('Falhou ao carregar:', code, desc, url)
   )
   wc.on('preload-error', (_e, path, error) => console.error('Erro no preload:', path, error))
+
+  wc.on('before-input-event', (event, input) => {
+    if (input.type !== 'keyDown' || !(input.control || input.meta)) return
+
+    let action: 'in' | 'out' | 'reset'
+    if (input.key === '+' || input.key === '=') action = 'in'
+    else if (input.key === '-' || input.key === '_') action = 'out'
+    else if (input.key === '0') action = 'reset'
+    else return
+
+    event.preventDefault()
+    wc.send('zoom:change', action)
+  })
+
+  wc.on('did-finish-load', () => {
+    wc.setZoomLevel(0)
+  })
 
   if (process.env['ELECTRON_RENDERER_URL']) {
     win.loadURL(process.env['ELECTRON_RENDERER_URL'])
