@@ -49,7 +49,7 @@ export default function CodeEditor(): React.JSX.Element {
     <div className="w-full h-full flex bg-background-main font-mono text-sm leading-6">
       <div
         ref={gutterRef}
-        className="overflow-hidden select-none py-2 pr-8 pl-2 text-right text-editor-line-count bg-editor-line-count-bg"
+        className="overflow-hidden select-none py-2 pr-7 pl-8 text-right text-editor-line-count bg-editor-background border-r border-border-line"
       >
         {Array.from({ length: lineCount }, (_, i) => (
           <div key={i}>{i + 1}</div>
