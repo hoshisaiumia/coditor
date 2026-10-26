@@ -7,7 +7,10 @@ contextBridge.exposeInMainWorld('api', {
   quit: () => ipcRenderer.send('app:quit'),
   openFile: (): Promise<{ filePath: string; content: string } | null> =>
     ipcRenderer.invoke('file:open'),
+  readFile: (path: string) => ipcRenderer.invoke('file:read', path),
   saveFile: (data: string, filePath?: string) => ipcRenderer.invoke('file:save', data, filePath),
+  openFolder: () => ipcRenderer.invoke('folder:open'),
+  readFolder: (path: string) => ipcRenderer.invoke('folder:read', path),
   onZoom: (cb: (action: 'in' | 'out' | 'reset') => void): (() => void) => {
     const listener = (_e: Electron.IpcRendererEvent, action: 'in' | 'out' | 'reset'): void =>
       cb(action)
